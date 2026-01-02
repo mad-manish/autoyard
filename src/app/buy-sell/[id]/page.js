@@ -73,6 +73,10 @@ export default function VehicleDetails({ params }) {
                         <p>{vehicle.description}</p>
                     </div>
 
+                    import EMICalculator from '@/components/EMICalculator';
+
+                    // ... (previous imports and code)
+
                     <div className={styles.actions}>
                         <button className={`${styles.contactBtn} ${styles.phoneBtn}`}>
                             Contact Seller <small>(Masked)</small>
@@ -80,10 +84,9 @@ export default function VehicleDetails({ params }) {
                         <button className={`${styles.contactBtn} ${styles.chatBtn}`}>
                             Chat with Seller
                         </button>
-                        <button className={`${styles.contactBtn}`} style={{ background: '#2563eb', color: 'white' }}>
-                            💰 Get Loan / EMI Options
-                        </button>
                     </div>
+
+                    <EMICalculator price={vehicle.price} />
 
                     <div className={styles.warrantyBox}>
                         <div className={styles.warrantyHeader}>
