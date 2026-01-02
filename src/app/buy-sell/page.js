@@ -1,19 +1,20 @@
+'use client';
+
 import VehicleCard from '@/components/VehicleCard';
 import Link from 'next/link';
 import styles from './page.module.css';
 
 const MOCK_LISTINGS = [
     { id: 1, title: 'Tata Prima 3530.K', price: '45,00,000', location: 'Mumbai, MH', year: '2022', type: 'Truck', image: '/images/truck.png', certified: true },
-    { id: 2, title: 'Ashok Leyland Dost', price: '7,50,000', location: 'Pune, MH', year: '2023', type: 'Tempo', image: null, greatDeal: true },
+    { id: 2, title: 'Ashok Leyland Dost', price: '7,50,000', location: 'Pune, MH', year: '2019', type: 'Tempo', image: null, greatDeal: true },
     { id: 3, title: 'Mahindra Bolero Pickup', price: '8,20,000', location: 'Delhi, DL', year: '2021', type: 'Pickup', image: null },
     { id: 4, title: 'Eicher Pro 2049', price: '12,00,000', location: 'Bangalore, KA', year: '2020', type: 'Truck', image: null, certified: true },
-    { id: 5, title: 'Tata Ace Gold', price: '5,50,000', location: 'Chennai, TN', year: '2023', type: 'Tempo', image: null },
+    { id: 5, title: 'Tata Ace Gold', price: '3,50,000', location: 'Chennai, TN', year: '2018', type: 'Tempo', image: null },
     { id: 6, title: 'BharatBenz 1923C', price: '28,00,000', location: 'Jaipur, RJ', year: '2019', type: 'Tipper', image: null },
 ];
 
 export default function BuySell({ searchParams }) {
     const mode = searchParams?.mode || 'buy';
-    // Check if searchParams.search exists before calling toLowerCase
     const searchQuery = searchParams?.search ? searchParams.search.toLowerCase() : '';
 
     const filteredListings = MOCK_LISTINGS.filter(item =>
@@ -24,8 +25,8 @@ export default function BuySell({ searchParams }) {
     return (
         <div className="container">
             <div className={styles.header}>
-                <h1>{mode === 'buy' ? 'Buy Commercial Vehicles' : 'Sell Your Vehicle'}</h1>
-                <p>Find the best deals on Trucks, Tippers, and heavy machinery.</p>
+                <h1>{mode === 'buy' ? 'Used Commercial Vehicles' : 'Sell Your Vehicle'}</h1>
+                <p>Mechanic verified trucks and equipment at fair prices.</p>
 
                 {searchQuery && (
                     <div style={{ marginTop: '10px', padding: '8px 16px', background: 'rgba(234, 179, 8, 0.1)', borderRadius: '8px', display: 'inline-block' }}>
@@ -45,14 +46,35 @@ export default function BuySell({ searchParams }) {
                             <option>All Types</option>
                             <option>Trucks</option>
                             <option>Tempos</option>
-                            <option>Construction (JCB)</option>
+                            <option>JCB / Construction</option>
                         </select>
                     </div>
 
                     <div className={styles.filterGroup}>
                         <label>Price Range</label>
                         <input type="range" min="0" max="5000000" className={styles.range} />
-                        <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Up to ₹50 Lakh</div>
+                        <div style={{ fontSize: '0.8rem', color: '#64748b' }}>Up to ₹50 Lakh</div>
+                    </div>
+
+                    <div className={styles.filterGroup}>
+                        <label>Model Year</label>
+                        <select className={styles.select}>
+                            <option>Any Year</option>
+                            <option>2022 & Later</option>
+                            <option>2020 - 2022</option>
+                            <option>2018 - 2020</option>
+                            <option>Older than 2018</option>
+                        </select>
+                    </div>
+
+                    <div className={styles.filterGroup}>
+                        <label>Max KMs Driven</label>
+                        <select className={styles.select}>
+                            <option>Any</option>
+                            <option>Under 20,000 KM</option>
+                            <option>Under 50,000 KM</option>
+                            <option>Under 1,00,000 KM</option>
+                        </select>
                     </div>
 
                     <button className="btn btn-primary" style={{ width: '100%', marginTop: '10px' }}>Apply Filters</button>

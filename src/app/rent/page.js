@@ -1,12 +1,14 @@
+'use client';
+
 import VehicleCard from '@/components/VehicleCard';
-import styles from '../buy-sell/page.module.css'; // Reusing layout styles
+import styles from '../buy-sell/page.module.css';
 
 const MOCK_RENTALS = [
-    { id: 1, title: 'JCB 3CX Backhoe', price: '12,000 / day', location: 'Mumbai, MH', year: '2022', type: 'JCB', image: '/images/jcb.png' },
-    { id: 2, title: 'Tata Hitachi 200', price: '18,000 / day', location: 'Pune, MH', year: '2021', type: 'Excavator', image: null },
-    { id: 3, title: 'Mahindra EarthMaster', price: '10,000 / day', location: 'Delhi, DL', year: '2023', type: 'Backhoe', image: null },
-    { id: 4, title: 'Hyva Tipper Truck', price: '5,000 / day', location: 'Bangalore, KA', year: '2020', type: 'Tipper', image: null },
-    { id: 5, title: 'Escorts Hydra Crane', price: '8,000 / day', location: 'Chennai, TN', year: '2019', type: 'Crane', image: null },
+    { id: 1, title: 'JCB 3CX Backhoe', price: '12,000 / day', location: 'Mumbai, MH', year: '2022', type: 'JCB', image: '/images/jcb.png', driverIncluded: true },
+    { id: 2, title: 'Tata Hitachi 200', price: '18,000 / day', location: 'Pune, MH', year: '2021', type: 'Excavator', image: null, driverIncluded: true },
+    { id: 3, title: 'Mahindra EarthMaster', price: '10,000 / day', location: 'Delhi, DL', year: '2023', type: 'Backhoe', image: null, machineOnly: true },
+    { id: 4, title: 'Hyva Tipper Truck', price: '5,000 / day', location: 'Bangalore, KA', year: '2020', type: 'Tipper', image: null, driverIncluded: true },
+    { id: 5, title: 'Escorts Hydra Crane', price: '8,000 / day', location: 'Chennai, TN', year: '2019', type: 'Crane', image: null, machineOnly: true },
 ];
 
 export default function RentPage() {
@@ -14,7 +16,7 @@ export default function RentPage() {
         <div className="container">
             <div className={styles.header}>
                 <h1>Rent Heavy Equipment</h1>
-                <button className="btn btn-primary">List for Rent</button>
+                <p>With verified operators or self-drive options.</p>
             </div>
 
             <div className={styles.layout}>
@@ -30,15 +32,19 @@ export default function RentPage() {
                             <option>Tipper</option>
                         </select>
                     </div>
+
                     <div className={styles.filterGroup}>
-                        <label>City</label>
-                        <select className={styles.select}>
-                            <option>All India</option>
-                            <option>Mumbai</option>
-                            <option>Delhi</option>
-                            <option>Bangalore</option>
-                        </select>
+                        <label>Operator</label>
+                        <div style={{ display: 'flex', gap: '8px', marginTop: '4px' }}>
+                            <label style={{ display: 'flex', alignItems: 'center', gap: '4px', fontWeight: 'normal' }}>
+                                <input type="checkbox" defaultChecked /> With Driver
+                            </label>
+                            <label style={{ display: 'flex', alignItems: 'center', gap: '4px', fontWeight: 'normal' }}>
+                                <input type="checkbox" /> Machine Only
+                            </label>
+                        </div>
                     </div>
+
                     <div className={styles.filterGroup}>
                         <label>Duration</label>
                         <select className={styles.select}>
@@ -51,7 +57,27 @@ export default function RentPage() {
 
                 <main className={styles.grid}>
                     {MOCK_RENTALS.map(vehicle => (
-                        <VehicleCard key={vehicle.id} {...vehicle} linkPrefix="/rent" />
+                        <div key={vehicle.id} style={{ position: 'relative' }}>
+                            <VehicleCard {...vehicle} linkPrefix="/rent" />
+                            {vehicle.driverIncluded && (
+                                <span style={{
+                                    position: 'absolute', bottom: '80px', right: '12px',
+                                    background: '#dbeafe', color: '#1e40af', padding: '4px 8px',
+                                    borderRadius: '6px', fontSize: '0.75rem', fontWeight: '700', zIndex: 5
+                                }}>
+                                    👨‍✈️ Driver Included
+                                </span>
+                            )}
+                            {vehicle.machineOnly && (
+                                <span style={{
+                                    position: 'absolute', bottom: '80px', right: '12px',
+                                    background: '#f3f4f6', color: '#374151', padding: '4px 8px',
+                                    borderRadius: '6px', fontSize: '0.75rem', fontWeight: '700', zIndex: 5
+                                }}>
+                                    🚜 Machine Only
+                                </span>
+                            )}
+                        </div>
                     ))}
                 </main>
             </div>
