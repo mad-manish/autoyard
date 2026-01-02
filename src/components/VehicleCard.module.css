@@ -1,100 +1,113 @@
+/* Clean Light VehicleCard */
 .card {
     display: block;
-    background-color: var(--primary-light);
+    background-color: white;
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-    border-color: var(--text-muted);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-yellow);
 }
 
 .imageWrapper {
     position: relative;
-    height: 200px;
+    height: 220px;
+    /* Bigger photos */
     width: 100%;
+    background: #f1f5f9;
 }
 
 .badge {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: var(--primary-dark);
-    color: var(--accent-yellow);
+    top: 12px;
+    left: 12px;
+    background-color: var(--accent-black);
+    color: white;
     padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.75rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
+    z-index: 10;
 }
 
 .content {
-    padding: var(--spacing-md);
+    padding: 16px;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 8px;
 }
 
 .title {
-    font-size: 1.125rem;
-    color: var(--text-main);
-    margin-bottom: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    line-height: 1.4;
 }
 
 .year {
-    background-color: var(--bg-main);
-    padding: 2px 6px;
+    background-color: #f1f5f9;
+    padding: 2px 8px;
     border-radius: 4px;
-    font-size: 0.85rem;
-    color: var(--text-muted);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
 }
 
 .details {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 12px;
 }
 
 .price {
-    font-weight: 700;
+    font-weight: 800;
     font-size: 1.25rem;
-    color: var(--accent-yellow);
+    color: #000;
 }
 
 .location {
-    font-size: 0.9rem;
-    color: var(--text-muted);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
+
 .certifiedBadge {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background-color: var(--success);
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #22c55e;
+    color: white;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-align: center;
 }
 
 .dealBadge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #ef4444;
-  color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: #ef4444;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    z-index: 10;
 }
