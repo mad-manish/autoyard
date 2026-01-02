@@ -1,6 +1,10 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './page.module.css';
+import EMICalculator from '@/components/EMICalculator';
 
 // Mock data fetcher
 const getVehicle = (id) => {
@@ -24,6 +28,12 @@ const getVehicle = (id) => {
 
 export default function VehicleDetails({ params }) {
     const vehicle = getVehicle(params.id);
+    const [showPhone, setShowPhone] = useState(false);
+
+    const handleWhatsApp = () => {
+        const text = `Hi, I am interested in your ${vehicle.title} listed on AutoYard. Is it available?`;
+        window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+    };
 
     return (
         <div className="container">
@@ -40,6 +50,7 @@ export default function VehicleDetails({ params }) {
                             fill
                             style={{ objectFit: 'cover' }}
                         />
+                        <div className={styles.shareIcon}>🔗</div>
                     </div>
                     <div className={styles.thumbnails}>
                         <div className={styles.thumbActive} />
@@ -50,8 +61,15 @@ export default function VehicleDetails({ params }) {
 
                 <div className={styles.info}>
                     <div className={styles.header}>
-                        <h1 className={styles.title}>{vehicle.title}</h1>
-                        <div className={styles.price}>₹ {vehicle.price}</div>
+                        <div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                                <h1 className={styles.title} style={{ marginBottom: 0 }}>{vehicle.title}</h1>
+                                <span style={{ background: '#dcfce7', color: '#166534', padding: '2px 8px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '700', border: '1px solid #bbf7d0' }}>
+                                    ✅ Verified Seller
+                                </span>
+                            </div>
+                            <div className={styles.price}>₹ {vehicle.price}</div>
+                        </div>
                     </div>
 
                     <div className={styles.meta}>
@@ -73,16 +91,18 @@ export default function VehicleDetails({ params }) {
                         <p>{vehicle.description}</p>
                     </div>
 
-                    import EMICalculator from '@/components/EMICalculator';
-
-                    // ... (previous imports and code)
-
                     <div className={styles.actions}>
-                        <button className={`${styles.contactBtn} ${styles.phoneBtn}`}>
-                            Contact Seller <small>(Masked)</small>
+                        <button
+                            className={`${styles.contactBtn} ${styles.phoneBtn}`}
+                            onClick={() => setShowPhone(!showPhone)}
+                        >
+                            {showPhone ? '📞 98765-43210' : 'Contact Seller (Show)'}
                         </button>
-                        <button className={`${styles.contactBtn} ${styles.chatBtn}`}>
-                            Chat with Seller
+                        <button
+                            className={`${styles.contactBtn} ${styles.chatBtn}`}
+                            onClick={handleWhatsApp}
+                        >
+                            Chat on WhatsApp
                         </button>
                     </div>
 
