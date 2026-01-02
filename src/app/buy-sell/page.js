@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import VehicleCard from '@/components/VehicleCard';
 import Link from 'next/link';
@@ -16,7 +16,7 @@ const MOCK_LISTINGS = [
     { id: 7, title: 'JCB 3DX Super', price: '32,00,000', location: 'Nagpur, MH', year: '2021', type: 'JCB', image: '/images/jcb.png', km: 2500 }, // Added JCB
 ];
 
-export default function BuySell() {
+function BuySellContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
 
@@ -159,5 +159,13 @@ export default function BuySell() {
                 </main>
             </div>
         </div>
+    );
+}
+
+export default function BuySell() {
+    return (
+        <Suspense fallback={<div className="container">Loading Used Vehicles...</div>}>
+            <BuySellContent />
+        </Suspense>
     );
 }
