@@ -1,5 +1,6 @@
 import './globals.css';
 import Navbar from '../components/Navbar';
+import BottomNav from '../components/BottomNav';
 import { LanguageProvider } from '../context/LanguageContext';
 import SOSButton from '../components/SOSButton';
 
@@ -14,7 +15,8 @@ export default function RootLayout({ children }) {
       <body>
         <LanguageProvider>
           <Navbar />
-          <main>{children}</main>
+          <main style={{ paddingBottom: '80px' }}>{children}</main>
+          <BottomNav />
           <SOSButton />
         </LanguageProvider>
       </body>
