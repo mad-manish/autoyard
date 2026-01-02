@@ -1,75 +1,129 @@
+/* Premium Glassmorphism Navbar */
 .navbar {
-    background-color: var(--primary-dark);
-    border-bottom: 1px solid var(--border-color);
-    padding: var(--spacing-md) 0;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 0;
+    transition: all 0.3s ease;
 }
 
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
+/* Logo Styling */
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--text-main);
-    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
     letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .highlight {
     color: var(--accent-yellow);
 }
 
+/* Links Section */
 .links {
     display: flex;
-    gap: var(--spacing-lg);
     align-items: center;
+    gap: 24px;
 }
 
 .link {
-    color: var(--text-muted);
-    font-weight: 600;
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 500;
     font-size: 0.95rem;
     transition: color 0.2s;
 }
 
 .link:hover {
-    color: var(--text-main);
+    color: white;
 }
 
-.langBtn {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--border-color);
-    color: var(--text-main);
-    padding: 4px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.85rem;
+/* Actions Group (Voice + Lang) */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.langBtn:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
+/* Voice Button */
 .voiceBtn {
-  background: rgba(220, 38, 38, 0.2);
-  border: 1px solid #dc2626;
-  color: white;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
 }
 
 .voiceBtn:hover {
-  background: #dc2626;
-  transform: scale(1.1);
+    background: var(--accent-yellow);
+    color: black;
+    border-color: var(--accent-yellow);
+    transform: scale(1.05);
+}
+
+/* Language Button */
+.langBtn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.langBtn:hover {
+    border-color: var(--accent-yellow);
+    color: var(--accent-yellow);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 0;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .link {
+        display: none;
+        /* Hide Desktop Links */
+    }
+
+    .voiceBtn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+
+    .langBtn {
+        padding: 5px 12px;
+        font-size: 0.8rem;
+    }
 }

@@ -6,7 +6,7 @@ import SOSButton from '../components/SOSButton';
 
 export const metadata = {
   title: 'AutoYard - Commercial Vehicle Marketplace',
-  description: 'Buy, Sell, and Rent Commercial Vehicles in India with Trust.',
+  description: 'Buy, Sell, and Rent Trucks, JCBs, and Commercial Vehicles in India.',
 };
 
 export default function RootLayout({ children }) {
@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           <main style={{ paddingBottom: '80px' }}>{children}</main>
           <BottomNav />
-          <SOSButton />
+          {/* <SOSButton /> */}
         </LanguageProvider>
       </body>
     </html>

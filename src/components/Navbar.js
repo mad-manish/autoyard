@@ -9,15 +9,18 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      <div className={`container ${styles.container}`}>
+      <div className={styles.container}>
         <Link href="/" className={styles.logo}>
           Auto<span className={styles.highlight}>Yard</span>
         </Link>
+
         <div className={styles.links}>
           <Link href="/buy-sell" className={styles.link}>{t('buySell')}</Link>
           <Link href="/rent" className={styles.link}>{t('rent')}</Link>
           <Link href="/services" className={styles.link}>{t('services')}</Link>
+        </div>
 
+        <div className={styles.actions}>
           <button
             className={styles.voiceBtn}
             onClick={() => alert('🎤 Listening... \n(Voice Search Mock)')}
@@ -30,7 +33,7 @@ export default function Navbar() {
             className={styles.langBtn}
             onClick={() => setLang(lang === 'en' ? 'hi' : 'en')}
           >
-            {lang === 'en' ? '🇮🇳 हिंदी' : '🇬🇧 English'}
+            {lang === 'en' ? '🇮🇳 HI' : '🇬🇧 EN'}
           </button>
         </div>
       </div>
