@@ -17,7 +17,6 @@ export default function Navbar() {
           <Link href="/buy-sell" className={styles.link}>{t('buySell')}</Link>
           <Link href="/rent" className={styles.link}>{t('rent')}</Link>
           <Link href="/services" className={styles.link}>{t('services')}</Link>
-          <Link href="/admin" className={styles.link}>{t('admin')}</Link>
 
           <button
             className={styles.voiceBtn}
