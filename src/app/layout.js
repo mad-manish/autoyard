@@ -1,3 +1,5 @@
+import './globals.css';
+import Navbar from '../components/Navbar';
 import { LanguageProvider } from '../context/LanguageContext';
 import SOSButton from '../components/SOSButton';
 
