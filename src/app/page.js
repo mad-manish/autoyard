@@ -35,6 +35,28 @@ export default function Home() {
         </Link>
       </div>
 
+      <section className={styles.categories}>
+        <h3>Browse by Category</h3>
+        <div className={styles.catGrid}>
+            <Link href="/buy-sell?search=truck" className={styles.catItem}>
+                <span className={styles.catIcon}>🚛</span>
+                <span>Trucks</span>
+            </Link>
+            <Link href="/buy-sell?search=jcb" className={styles.catItem}>
+                <span className={styles.catIcon}>🏗️</span>
+                <span>JCBs</span>
+            </Link>
+            <Link href="/buy-sell?search=tipper" className={styles.catItem}>
+                <span className={styles.catIcon}>🚚</span>
+                <span>Tippers</span>
+            </Link>
+            <Link href="/buy-sell?search=tempo" className={styles.catItem}>
+                <span className={styles.catIcon}>🚐</span>
+                <span>Tempos</span>
+            </Link>
+        </div>
+      </section>
+
       <div className={styles.trustFooter}>
         <div className={styles.trustItem}>
           <span>✅</span> 10,000+ Verified Users
