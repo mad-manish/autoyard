@@ -1,0 +1,137 @@
+.breadcrumb {
+    padding: var(--spacing-lg) 0;
+    color: var(--text-muted);
+}
+
+.breadcrumb a:hover {
+    color: var(--accent-yellow);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: 1.5fr 1fr;
+    }
+}
+
+.mainImage {
+    position: relative;
+    height: 400px;
+    background-color: var(--primary-light);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-md);
+}
+
+.thumbnails {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.thumb,
+.thumbActive {
+    width: 80px;
+    height: 60px;
+    background-color: var(--primary-light);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.thumbActive {
+    border: 2px solid var(--accent-yellow);
+}
+
+.header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.title {
+    margin-bottom: var(--spacing-xs);
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-yellow);
+}
+
+.meta {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.tag {
+    background-color: var(--primary-light);
+    padding: 4px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+}
+
+.specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    background-color: var(--primary-light);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+}
+
+.specItem label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+}
+
+.specItem span {
+    font-weight: 600;
+}
+
+.contactBtn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: var(--spacing-md);
+    transition: opacity 0.2s;
+}
+
+.phoneBtn {
+    background-color: var(--success);
+    color: white;
+}
+
+.chatBtn {
+    background-color: var(--primary-light);
+    color: var(--text-main);
+    border: 1px solid var(--text-muted);
+}
+
+.safety {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--danger);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    color: #fca5a5;
+    font-size: 0.9rem;
+}
+
+.safety h4 {
+    color: var(--danger);
+    margin-bottom: 4px;
+}

@@ -1,0 +1,31 @@
+.driverBtn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-light);
+    border: 1px dashed var(--text-muted);
+    color: var(--text-main);
+    border-radius: 8px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.driverBtn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent-yellow);
+}
+
+.selectedDriver {
+    width: 100%;
+    padding: 12px;
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid #4ade80;
+    color: #4ade80;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

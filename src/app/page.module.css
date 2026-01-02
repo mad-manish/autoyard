@@ -1,0 +1,119 @@
+.container {
+  padding-bottom: var(--spacing-xl);
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: radial-gradient(circle at center, var(--primary-light), var(--bg-main));
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.highlight {
+  color: var(--accent-yellow);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.splitSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .splitSection {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  position: relative;
+  background-color: var(--primary-light);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--text-muted);
+}
+
+.imageWrapper {
+  position: relative;
+  height: 250px;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+}
+
+.cardContent {
+  padding: var(--spacing-lg);
+  flex-grow: 1;
+  border-top: 1px solid var(--border-color);
+}
+
+.cardContent h2 {
+  color: var(--accent-yellow);
+  margin-bottom: var(--spacing-xs);
+}
+
+.cardContent p {
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-lg);
+  min-height: 3rem;
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.actions a {
+  flex: 1;
+  text-align: center;
+}
+
+.features {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--spacing-md);
+  text-align: center;
+}
+
+.feature h3 {
+  color: var(--text-main);
+  margin-bottom: var(--spacing-xs);
+}
+
+.feature p {
+  color: var(--text-muted);
+}

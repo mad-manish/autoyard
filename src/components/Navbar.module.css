@@ -1,0 +1,75 @@
+.navbar {
+    background-color: var(--primary-dark);
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing-md) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.highlight {
+    color: var(--accent-yellow);
+}
+
+.links {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.link {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.link:hover {
+    color: var(--text-main);
+}
+
+.langBtn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.langBtn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+.voiceBtn {
+  background: rgba(220, 38, 38, 0.2);
+  border: 1px solid #dc2626;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.voiceBtn:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
