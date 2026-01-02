@@ -138,6 +138,39 @@ export default function VehicleDetails({ params }) {
                     </div>
                 </div>
             </div>
-        </div>
-    );
+            import VehicleCard from '@/components/VehicleCard';
+
+            // ... (existing imports)
+
+            export default function VehicleDetails({params}) {
+    // ... (existing component code)
+
+    // Mock Similar Vehicles (excluding current ID)
+    const similarVehicles = [
+            {id: 2, title: 'Ashok Leyland Dost', price: '7,50,000', location: 'Pune, MH', year: '2019', type: 'Tempo', image: null, greatDeal: true },
+            {id: 4, title: 'Eicher Pro 2049', price: '12,00,000', location: 'Bangalore, KA', year: '2020', type: 'Truck', image: null, certified: true },
+            {id: 6, title: 'BharatBenz 1923C', price: '28,00,000', location: 'Jaipur, RJ', year: '2019', type: 'Tipper', image: null },
+            ];
+
+            return (
+            <div className="container">
+                {/* ... (existing JSX) ... */}
+
+                <div className={styles.grid}>
+                    {/* ... (existing content) ... */}
+                </div>
+
+                {/* NEW: Similar Vehicles Section */}
+                <div className={styles.similarSection}>
+                    <h3 className={styles.sectionTitle}>Check Out Similar Vehicles</h3>
+                    <div className={styles.similarGrid}>
+                        {similarVehicles.map(v => (
+                            <div key={v.id} style={{ minWidth: '280px' }}>
+                                <VehicleCard {...v} />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            );
 }
