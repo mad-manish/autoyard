@@ -1,70 +1,79 @@
 'use client';
 
 import Link from 'next/link';
-import Navbar from '../components/Navbar';
+import Image from 'next/image';
 import styles from './page.module.css';
 
 export default function Home() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>What do you need today?</h1>
-        <p>India's Commercial Vehicle Marketplace</p>
+        <div className={styles.heroImageWrapper}>
+          <Image
+            src="/hero.png"
+            alt="Rugged Used Commercial Vehicles"
+            width={800}
+            height={300}
+            className={styles.heroImage}
+            priority
+          />
+        </div>
+        <h1>India's Trusted <span className={styles.highlight}>Second-Hand</span> Marketplace</h1>
+        <p>Verified Used Trucks, JCBs, and Equipment. Fair Prices. Clean Papers.</p>
       </header>
 
       <div className={styles.actionGrid}>
-        {/* BUY CARD */}
+        {/* BUY USED */}
         <Link href="/buy-sell?mode=buy" className={`${styles.card} ${styles.buyCard}`}>
-          <span className={styles.icon}>🚚</span>
-          <h2>Buy</h2>
-          <p>Trucks, Tempos, JCBs</p>
+          <div className={styles.cardContent}>
+            <span className={styles.icon}>🚚</span>
+            <h2>Buy Used</h2>
+            <p>Mechanic Verified</p>
+          </div>
         </Link>
 
-        {/* SELL CARD */}
+        {/* SELL USED */}
         <Link href="/buy-sell?mode=sell" className={`${styles.card} ${styles.sellCard}`}>
-          <span className={styles.icon}>💰</span>
-          <h2>Sell</h2>
-          <p>Get Best Price</p>
+          <div className={styles.cardContent}>
+            <span className={styles.icon}>💰</span>
+            <h2>Sell Used</h2>
+            <p>Get Cash Fast</p>
+          </div>
         </Link>
 
-        {/* RENT CARD */}
+        {/* RENT */}
         <Link href="/rent" className={`${styles.card} ${styles.rentCard}`}>
-          <span className={styles.icon}>🚜</span>
-          <h2>Rent</h2>
-          <p>Hire Equipment</p>
+          <div className={styles.cardContent}>
+            <span className={styles.icon}>🚜</span>
+            <h2>Rent</h2>
+            <p>Hire Equipment</p>
+          </div>
         </Link>
       </div>
 
-      <section className={styles.categories}>
-        <h3>Browse by Category</h3>
-        <div className={styles.catGrid}>
-            <Link href="/buy-sell?search=truck" className={styles.catItem}>
-                <span className={styles.catIcon}>🚛</span>
-                <span>Trucks</span>
-            </Link>
-            <Link href="/buy-sell?search=jcb" className={styles.catItem}>
-                <span className={styles.catIcon}>🏗️</span>
-                <span>JCBs</span>
-            </Link>
-            <Link href="/buy-sell?search=tipper" className={styles.catItem}>
-                <span className={styles.catIcon}>🚚</span>
-                <span>Tippers</span>
-            </Link>
-            <Link href="/buy-sell?search=tempo" className={styles.catItem}>
-                <span className={styles.catIcon}>🚐</span>
-                <span>Tempos</span>
-            </Link>
+      <section className={styles.painPoints}>
+        <div className={styles.trustItem}>
+          <span className={styles.check}>✅</span>
+          <div>
+            <strong>Mechanic Verified</strong>
+            <small>Every vehicle inspected. No junk.</small>
+          </div>
+        </div>
+        <div className={styles.trustItem}>
+          <span className={styles.check}>📄</span>
+          <div>
+            <strong>RTO Papers Sorted</strong>
+            <small>We handle the transfer paperwork.</small>
+          </div>
+        </div>
+        <div className={styles.trustItem}>
+          <span className={styles.check}>⚖️</span>
+          <div>
+            <strong>Fair Market Price</strong>
+            <small>Transparent pricing. No hidden fees.</small>
+          </div>
         </div>
       </section>
-
-      <div className={styles.trustFooter}>
-        <div className={styles.trustItem}>
-          <span>✅</span> 10,000+ Verified Users
-        </div>
-        <div className={styles.trustItem}>
-          <span>🛡️</span> Secure Payments
-        </div>
-      </div>
     </div>
   );
 }
