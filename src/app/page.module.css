@@ -1,119 +1,128 @@
 .container {
-  padding-bottom: var(--spacing-xl);
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
 }
 
-.hero {
+.header {
   text-align: center;
-  padding: 4rem 1rem;
-  background: radial-gradient(circle at center, var(--primary-light), var(--bg-main));
+  margin-bottom: 40px;
 }
 
-.title {
-  font-size: 3rem;
-  margin-bottom: var(--spacing-md);
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+.header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
 }
 
-.highlight {
-  color: var(--accent-yellow);
+.header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
 }
 
-.subtitle {
-  font-size: 1.25rem;
-  color: var(--text-muted);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.splitSection {
+/* Big Action Grid */
+.actionGrid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-lg);
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
-}
-
-@media (min-width: 768px) {
-  .splitSection {
-    grid-template-columns: 1fr 1fr;
-  }
+  width: 100%;
 }
 
 .card {
-  position: relative;
-  background-color: var(--primary-light);
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s, border-color 0.2s;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  padding: 30px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  border: 2px solid var(--border-color);
+  transition: all 0.2s;
+  text-align: center;
+  min-height: 200px;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  border-color: var(--text-muted);
+  border-color: var(--accent-yellow);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
-.imageWrapper {
-  position: relative;
-  height: 250px;
-  width: 100%;
+/* Card Specifics */
+.icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  display: block;
 }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+.card h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 4px;
 }
 
-.cardContent {
-  padding: var(--spacing-lg);
-  flex-grow: 1;
-  border-top: 1px solid var(--border-color);
+.card p {
+  color: var(--text-secondary);
+  font-weight: 500;
 }
 
-.cardContent h2 {
-  color: var(--accent-yellow);
-  margin-bottom: var(--spacing-xs);
+/* Colors for cards */
+.buyCard {
+  background: #f0f9ff;
+  border-color: #bae6fd;
 }
 
-.cardContent p {
-  color: var(--text-muted);
-  margin-bottom: var(--spacing-lg);
-  min-height: 3rem;
+.sellCard {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
 }
 
-.actions {
+.rentCard {
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+
+.trustFooter {
+  margin-top: 50px;
   display: flex;
-  gap: var(--spacing-md);
+  justify-content: center;
+  gap: 24px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  flex-wrap: wrap;
 }
 
-.actions a {
-  flex: 1;
-  text-align: center;
-}
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+    justify-content: flex-start;
+    padding-top: 40px;
+  }
 
-.features {
-  margin-top: 4rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-lg);
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 var(--spacing-md);
-  text-align: center;
-}
+  .actionGrid {
+    grid-template-columns: 1fr;
+    /* Stack purely vertical on mobile */
+  }
 
-.feature h3 {
-  color: var(--text-main);
-  margin-bottom: var(--spacing-xs);
-}
+  .card {
+    flex-direction: row;
+    /* Horizontal cards on mobile */
+    min-height: 100px;
+    padding: 20px;
+    justify-content: flex-start;
+    gap: 20px;
+    text-align: left;
+  }
 
-.feature p {
-  color: var(--text-muted);
+  .icon {
+    margin-bottom: 0;
+    font-size: 2.5rem;
+  }
 }
