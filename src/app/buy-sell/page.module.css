@@ -3,28 +3,50 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 0 20px 0;
-    border-bottom: 1px solid var(--border-color);
+    padding: 30px 40px;
+    background: white;
     margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .header h1 {
     font-size: 2rem;
     color: var(--text-primary);
     font-weight: 800;
+    margin-bottom: 8px;
 }
 
 .header p {
     color: var(--text-secondary);
-    margin-top: 4px;
+    font-size: 1rem;
+}
+
+.clearBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #fef2f2;
+    color: #ef4444;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.clearBtn:hover {
+    background: #fee2e2;
 }
 
 .layout {
     display: grid;
-    grid-template-columns: 260px 1fr;
-    /* Desktop default */
-    gap: 40px;
-    align-items: start;
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px 80px 24px;
 }
 
 /* Sidebar Styling */
@@ -34,17 +56,22 @@
     border-radius: 16px;
     border: 1px solid var(--border-color);
     position: sticky;
-    /* Sticky sidebar */
     top: 100px;
+    /* Below Navbar */
+    height: fit-content;
+    box-shadow: var(--shadow-sm);
 }
 
 .filters h3 {
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 12px;
-    margin-bottom: 20px;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
     color: var(--text-primary);
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .filterGroup {
@@ -61,67 +88,86 @@
 
 .select {
     width: 100%;
-    padding: 10px;
-    background-color: #f8fafc;
+    padding: 12px;
+    background-color: var(--bg-primary);
     border: 1px solid var(--border-color);
     color: var(--text-primary);
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 0.95rem;
     outline: none;
-    transition: border 0.2s;
+    transition: all 0.2s;
+    appearance: none;
+    /* Custom arrow ideally */
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
 }
 
 .select:focus {
     border-color: var(--accent-yellow);
+    box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.2);
 }
 
 .range {
     width: 100%;
     accent-color: var(--accent-yellow);
-    /* Yellow slider */
+    height: 6px;
+    background: var(--bg-tertiary);
+    border-radius: 3px;
+    margin: 10px 0;
+}
+
+.rangeContainer {
+    padding: 0 4px;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 24px;
+}
+
+/* Empty State */
+.emptyState {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px;
+    background: white;
+    border-radius: 16px;
+    border: 1px dashed var(--border-color);
+    color: var(--text-secondary);
 }
 
 /* Responsive Rules */
 @media (max-width: 1024px) {
     .layout {
-        grid-template-columns: 220px 1fr;
-        gap: 20px;
+        gap: 24px;
+        padding: 0 16px 80px 16px;
     }
 }
 
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
-        text-align: center;
+        align-items: flex-start;
+        padding: 20px;
         gap: 16px;
-        padding: 24px 0;
-    }
-
-    .header h1 {
-        font-size: 1.5rem;
     }
 
     .layout {
         grid-template-columns: 1fr;
-        /* Stack sidebar on top */
     }
 
     .filters {
         position: static;
-        margin-bottom: 20px;
-        border: 1px solid var(--accent-yellow);
-        /* Highlight filters on mobile */
-        background: #fffbeb;
+        margin-bottom: 24px;
+        background: #f8fafc;
+        border: 1px solid var(--border-color);
     }
 
     .grid {
         grid-template-columns: 1fr;
-        /* 1 col on mobile */
     }
 }

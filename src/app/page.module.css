@@ -1,191 +1,224 @@
-.container {
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  max-width: 1000px;
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.mainContent {
+  max-width: var(--container-width);
   margin: 0 auto;
+  padding: 0 24px 80px 24px;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 40px;
-  width: 100%;
-}
-
-.heroImageWrapper {
-  margin-bottom: 24px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.heroImage {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.header h1 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-  line-height: 1.2;
-}
-
-.highlight {
-  color: #d97706;
-  /* Amber for "Used/Warning/Construction" vibe */
-  text-decoration: underline;
-  text-decoration-color: #fcd34d;
-  text-decoration-thickness: 4px;
-}
-
-.header p {
-  color: var(--text-secondary);
-  font-size: 1.15rem;
-  font-weight: 500;
-}
-
-/* Big Action Grid */
-.actionGrid {
+/* Bento Grid Layout */
+.bentoGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 250px 250px;
   gap: 24px;
-  width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
+  margin-top: -60px;
+  /* Overlap Hero slightly */
+  position: relative;
+  z-index: 10;
 }
 
 .card {
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  text-decoration: none;
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: white;
-  padding: 30px 20px;
-  border-radius: 16px;
-  text-decoration: none;
-  border: 2px solid var(--border-color);
-  transition: all 0.2s;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: box-shadow 0.2s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   border-color: var(--accent-yellow);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-.icon {
-  font-size: 3.5rem;
-  margin-bottom: 12px;
-  display: block;
-}
-
-.card h2 {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 4px;
-}
-
-.card p {
-  color: var(--text-secondary);
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* Colors for cards */
-.buyCard {
-  border-bottom: 6px solid #d97706;
-}
-
-.sellCard {
-  border-bottom: 6px solid #16a34a;
-}
-
-.rentCard {
-  border-bottom: 6px solid #2563eb;
-}
-
-
-/* Pain Points Section */
-.painPoints {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-  background: white;
-  padding: 24px;
-  border-radius: 16px;
-  border: 1px solid var(--border-color);
-}
-
-.trustItem {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 8px;
-}
-
-.check {
-  font-size: 1.5rem;
-  min-width: 40px;
-  height: 40px;
-  background: #f0fdf4;
+.cardIconBkg {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #16a34a;
+  opacity: 0.1;
+  transform: rotate(-15deg);
 }
 
-.trustItem div {
-  display: flex;
-  flex-direction: column;
+.cardIconBkg svg {
+  width: 80px;
+  height: 80px;
 }
 
-.trustItem strong {
-  font-size: 1.1rem;
+/* Specific Card Styles */
+.buyCard {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  /* Full Height Left */
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.buyCard .cardIconBkg {
+  background: var(--text-primary);
   color: var(--text-primary);
 }
 
-.trustItem small {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
+.buyCard h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
 }
 
-@media (max-width: 768px) {
-  .header h1 {
-    font-size: 1.8rem;
-  }
+.buyCard p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 80%;
+  margin-bottom: 24px;
+}
 
-  .actionGrid {
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--accent-yellow);
+}
+
+.sellCard {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  background: #fefce8;
+  /* Light Yellow Tint */
+  border-color: #fef08a;
+}
+
+.sellCard h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.sellCard .cardIconBkg {
+  background: var(--accent-yellow);
+  color: var(--accent-yellow);
+}
+
+.rentCard {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  background: #eff6ff;
+  /* Light Blue Tint */
+  border-color: #dbeafe;
+}
+
+.rentCard h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.rentCard .cardIconBkg {
+  background: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+/* Trust Section */
+.trustSection {
+  text-align: center;
+  padding: 60px 0;
+}
+
+.sectionHeader {
+  margin-bottom: 48px;
+  display: inline-block;
+}
+
+.sectionHeader h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.titleUnderline {
+  height: 4px;
+  background: var(--accent-yellow);
+  width: 60px;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.trustGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.trustItem {
+  padding: 24px;
+  background: white;
+  border-radius: 16px;
+  /* border: 1px solid var(--border-color); */
+}
+
+.trustIcon {
+  width: 64px;
+  height: 64px;
+  background: var(--bg-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+  color: var(--text-primary);
+}
+
+.trustItem h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.trustItem p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+  .bentoGrid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-rows: auto;
+    margin-top: 0;
   }
 
-  .card {
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 20px;
-    text-align: left;
-    min-height: auto;
+  .buyCard {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-height: 300px;
   }
 
-  .cardContent {
-    display: flex;
-    flex-direction: column;
+  .sellCard,
+  .rentCard {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-height: 200px;
   }
 
-  .icon {
-    font-size: 2.5rem;
-    margin-bottom: 0;
-    margin-right: 20px;
+  .trustGrid {
+    grid-template-columns: 1fr;
   }
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, use } from 'react';
 import Image from 'next/image';
 import Navbar from '../../../components/Navbar';
 import RentalCalendar from '../../../components/RentalCalendar';
@@ -8,7 +8,7 @@ import DriverModal from '../../../components/DriverModal';
 import styles from './page.module.css';
 
 export default function RentalDetails({ params }) {
-    const { id } = params;
+    const { id } = use(params);
     const [driver, setDriver] = useState(null);
     const [showDriverModal, setShowDriverModal] = useState(false);
 

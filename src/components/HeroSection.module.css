@@ -1,0 +1,201 @@
+.hero {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0f172a;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.bgImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Pattern or Fallback Image */
+    background:
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.9)),
+        url('/hero.png') center/cover no-repeat;
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    color: white;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+    color: var(--accent-yellow);
+}
+
+.textContent h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -0.04em;
+}
+
+.highlight {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
+    position: relative;
+    display: inline-block;
+}
+
+/* Optional: Filled highlight effect */
+.highlight::after {
+    content: 'Heavy Metal.';
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--accent-yellow);
+    width: 0%;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: fillText 1.5s ease-out 0.5s forwards;
+    -webkit-text-stroke: 0;
+}
+
+@keyframes fillText {
+    to {
+        width: 100%;
+    }
+}
+
+.textContent p {
+    font-size: 1.25rem;
+    color: #cbd5e1;
+    /* Slate-300 */
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.searchWrapper {
+    width: 100%;
+    max-width: 700px;
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.searchIcon {
+    margin: 0 16px;
+    color: var(--text-muted);
+}
+
+.input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    padding: 8px 0;
+    outline: none;
+}
+
+.input::placeholder {
+    color: var(--text-muted);
+}
+
+.searchBtn {
+    background: var(--text-primary);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.searchBtn:hover {
+    background: black;
+}
+
+.tags {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.tags button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.tags button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    .textContent h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero {
+        height: 500px;
+    }
+
+    .searchBar {
+        flex-direction: column;
+        gap: 12px;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .input {
+        background: white;
+        width: 100%;
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .searchBtn {
+        width: 100%;
+    }
+
+    .searchIcon {
+        display: none;
+    }
+}

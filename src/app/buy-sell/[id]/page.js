@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, use } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './page.module.css';
@@ -28,7 +28,8 @@ const getVehicle = (id) => {
 };
 
 export default function VehicleDetails({ params }) {
-    const vehicle = getVehicle(params.id);
+    const { id } = use(params);
+    const vehicle = getVehicle(id);
     const [showPhone, setShowPhone] = useState(false);
 
     const handleWhatsApp = () => {

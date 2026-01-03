@@ -12,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body suppressHydrationWarning>
         <LanguageProvider>
           <Navbar />
           <main style={{ paddingBottom: '80px' }}>{children}</main>
